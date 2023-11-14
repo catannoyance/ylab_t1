@@ -28,7 +28,7 @@ export const Auth = (props: AuthProps) => {
                         id="password"
                         placeholder="••••••••••••"
                     />
-                    <a href="#" className={styles.forgotPasswordLink}>
+                    <a href="#" tabIndex={1} className={styles.forgotPasswordLink}>
                         Забыли пароль?
                     </a>
                 </div>
