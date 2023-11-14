@@ -32,9 +32,11 @@ export const Auth = (props: AuthProps) => {
             </div>
 
             <div className={styles.buttonContainer}>
-                <Button label="Войти" style="primary" />
-                <Button label="Регистрация" style="secondary" />
-                <Button label="Забыли пароль?" style="tertiary" />
+                <Button style="primary" onClick={handleSubmit}>
+                    Войти
+                </Button>
+                <Button style="secondary">Регистрация</Button>
+                <Button style="tertiary">Забыли пароль?</Button>
             </div>
         </form>
     )
