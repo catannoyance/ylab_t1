@@ -10,7 +10,12 @@ function App() {
                 justifyContent: "center",
                 alignItems: "center",
             }}>
-            <Auth />
+            <Auth
+                onSignIn={() => {}}
+                onForgotPassword={() => {}}
+                onSignUp={() => {}}
+                state="waiting"
+            />
         </div>
     )
 }

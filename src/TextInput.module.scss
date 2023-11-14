@@ -27,3 +27,17 @@
         }
     }
 }
+
+.error {
+    & > input {
+        outline-color: var(--c-red-600);
+    }
+}
+
+.errorText {
+    font-size: var(--text-xs);
+    line-height: var(--leading-xs);
+
+    color: var(--c-red-600);
+    font-weight: 500;
+}
