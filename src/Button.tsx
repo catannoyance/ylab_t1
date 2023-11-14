@@ -1,3 +1,4 @@
+import clsx from "clsx"
 import styles from "./Button.module.scss"
 
 type ButtonProps = {
@@ -7,11 +8,9 @@ type ButtonProps = {
 }
 
 export const Button = (props: ButtonProps) => {
-    const style = styles[props.style]
-
     return (
         <button
-            className={`${styles.button} ${style}`}
+            className={clsx(styles.button, styles[props.style])}
             onClick={props.onClick}
             type="button">
             {props.label}
