@@ -9,6 +9,10 @@
     padding: var(--spacing-xl);
 
     border-radius: var(--border-radius-sm);
+
+    box-shadow:
+        0 4px 6px -1px rgb(0 0 0 / 0.1),
+        0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
 .fieldContainer {
@@ -41,9 +45,10 @@
     margin: 0;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
     .auth {
         width: 100%;
         border: none;
+        box-shadow: none;
     }
 }

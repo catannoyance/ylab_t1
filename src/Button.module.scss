@@ -1,14 +1,13 @@
 .button {
     padding: var(--spacing-xs) var(--spacing-sm);
-    border: none;
     cursor: pointer;
+    border: none;
     border-radius: var(--border-radius-sm);
+
     font-size: var(--text-sm);
     line-height: var(--leading-sm);
     font-weight: 600;
-    border: none;
     font-family: "Montserrat", sans-serif;
-    text-decoration: none;
 
     outline: 0px solid var(--c-blue-600);
     outline-offset: 2px;
@@ -16,10 +15,6 @@
 
     white-space: nowrap;
     user-select: none;
-
-    &:hover {
-        text-decoration: underline;
-    }
 
     &:focus {
         outline: 3px solid var(--c-blue-600);
@@ -31,10 +26,13 @@
     color: var(--c-neutral-0);
     border: 1px solid var(--c-blue-600);
 
-    &:active {
+    &:hover {
         background: var(--c-blue-700);
-        border: 1px solid var(--c-blue-700);
         outline-color: var(--c-blue-700);
+    }
+
+    &:active {
+        background: var(--c-blue-800);
     }
 }
 
@@ -43,8 +41,11 @@
     color: var(--c-blue-600);
     background: var(--c-blue-50);
 
-    &:active {
+    &:hover {
         background: var(--c-blue-100);
+    }
+    &:active {
+        background: var(--c-blue-200);
     }
 }
 
@@ -58,10 +59,10 @@
     text-decoration: none;
 
     &:hover {
-        text-decoration: underline;
+        background: var(--c-neutral-100);
     }
 
     &:active {
-        background: var(--c-neutral-50);
+        background: var(--c-neutral-200);
     }
 }

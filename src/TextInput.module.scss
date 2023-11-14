@@ -17,9 +17,13 @@
         outline: 1px solid var(--c-neutral-300);
 
         transition: outline 0.1s ease;
-    }
 
-    & > input:focus {
-        outline: 3px solid var(--c-blue-500);
+        &:focus {
+            outline: 3px solid var(--c-blue-500);
+        }
+
+        &::placeholder {
+            color: var(--c-neutral-400);
+        }
     }
 }
