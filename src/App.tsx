@@ -1,8 +1,18 @@
+import { Auth } from "./Auth"
+import { TextInput } from "./TextInput"
+import "./index.css"
+
 function App() {
     return (
-        <>
-            <p>введите пожалуйста логин и пароль правильные, а неправильные не вводите :з</p>
-        </>
+        <div
+            style={{
+                height: "100vh",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+            }}>
+            <Auth />
+        </div>
     )
 }
 

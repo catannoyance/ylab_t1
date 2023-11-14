@@ -1,0 +1,16 @@
+.main {
+    border: 1px solid var(--c-neutral-200);
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+
+    width: 12em;
+    padding: var(--spacing-lg);
+
+    border-radius: var(--border-radius-sm);
+
+    box-shadow:
+        0 1px 3px 0 rgb(0 0 0 / 0.1),
+        0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
