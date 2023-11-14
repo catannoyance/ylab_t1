@@ -1,4 +1,4 @@
-import styles from "./TextInput.module.css"
+import styles from "./TextInput.module.scss"
 
 type TextInputProps = {
     value: string

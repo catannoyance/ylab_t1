@@ -27,10 +27,12 @@
 
     gap: var(--spacing-sm);
     width: 100%;
+
+    & > *:first-child {
+        grid-area: primary;
+    }
 }
 
-.buttonContainer > *:first-child {
-    grid-area: primary;
 }
 
 @media screen and (max-width: 500px) {

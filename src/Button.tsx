@@ -1,4 +1,4 @@
-import styles from "./Button.module.css"
+import styles from "./Button.module.scss"
 
 type ButtonProps = {
     label: string
@@ -10,7 +10,10 @@ export const Button = (props: ButtonProps) => {
     const style = styles[props.style]
 
     return (
-        <button className={`${styles.button} ${style}`} onClick={props.onClick} type="button">
+        <button
+            className={`${styles.button} ${style}`}
+            onClick={props.onClick}
+            type="button">
             {props.label}
         </button>
     )

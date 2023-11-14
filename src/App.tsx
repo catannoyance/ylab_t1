@@ -1,5 +1,5 @@
 import { Auth } from "./Auth"
-import "./index.css"
+import "./index.scss"
 
 function App() {
     return (

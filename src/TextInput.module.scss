@@ -3,12 +3,12 @@
     flex-direction: column;
     gap: var(--spacing-xxs);
 
-    > label {
+    & > label {
         font-size: var(--text-sm);
         font-weight: 600;
     }
 
-    > input {
+    & > input {
         font-family: "Montserrat", "sans-serif";
         padding: var(--spacing-xs);
         border-radius: var(--border-radius-xs);
@@ -19,7 +19,7 @@
         transition: outline 0.1s ease;
     }
 
-    > input:focus {
+    & > input:focus {
         outline: 3px solid var(--c-blue-500);
     }
 }

@@ -16,10 +16,14 @@
 
     white-space: nowrap;
     user-select: none;
-}
 
-.button:focus {
-    outline: 3px solid var(--c-blue-600);
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &:focus {
+        outline: 3px solid var(--c-blue-600);
+    }
 }
 
 .primary {
@@ -27,7 +31,7 @@
     color: var(--c-neutral-0);
     border: 1px solid var(--c-blue-600);
 
-    :active {
+    &:active {
         background: var(--c-blue-700);
         border: 1px solid var(--c-blue-700);
         outline-color: var(--c-blue-700);
@@ -39,7 +43,7 @@
     color: var(--c-blue-600);
     background: var(--c-blue-50);
 
-    :active {
+    &:active {
         background: var(--c-blue-100);
     }
 }
@@ -53,11 +57,11 @@
 
     text-decoration: none;
 
-    :hover {
+    &:hover {
         text-decoration: underline;
     }
 
-    :active {
+    &:active {
         background: var(--c-neutral-50);
     }
 }

@@ -1,5 +1,5 @@
 import { TextInput } from "./TextInput"
-import styles from "./Auth.module.css"
+import styles from "./Auth.module.scss"
 import { useState } from "react"
 import { Button } from "./Button"
 
