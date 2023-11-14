@@ -16,9 +16,7 @@
         border: none;
         outline: 1px solid var(--c-neutral-300);
 
-        transition:
-            outline 0.1s ease-out,
-            background-color 0.1s ease-out;
+        transition: outline 0.1s ease;
     }
 
     > input:focus {
