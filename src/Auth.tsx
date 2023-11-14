@@ -1,6 +1,6 @@
 import { TextInput } from "./TextInput"
 import styles from "./Auth.module.scss"
-import { useCallback, useState } from "react"
+import { useCallback, useId, useState } from "react"
 import { Button } from "./Button"
 
 type AuthProps = {
@@ -53,6 +53,9 @@ export const Auth = (props: AuthProps) => {
         props,
     ])
 
+    const emailFieldId = useId()
+    const passwordFieldId = useId()
+
     return (
         <form className={styles.auth}>
             <h1 className={styles.header}>Вход</h1>
@@ -62,7 +65,7 @@ export const Auth = (props: AuthProps) => {
                     label="Email"
                     value={email}
                     onSetValue={handleEmailEdit}
-                    id="login"
+                    id={emailFieldId}
                     placeholder="someone@example.com"
                     errored={emailErrored}
                     errorText="Неверный формат email"
@@ -72,7 +75,7 @@ export const Auth = (props: AuthProps) => {
                     value={password}
                     onSetValue={handlePasswordEdit}
                     hidden
-                    id="password"
+                    id={passwordFieldId}
                     placeholder="••••••••••••"
                     errored={passwordErrored}
                     errorText="Пароль должен быть не менее 8 символов"
