@@ -69,6 +69,8 @@ export const Auth = (props: AuthProps) => {
                     placeholder="someone@example.com"
                     errored={emailErrored}
                     errorText="Неверный формат email"
+                    disabled={props.state === "loading"}
+                    required
                 />
                 <TextInput
                     label="Пароль"
@@ -79,15 +81,24 @@ export const Auth = (props: AuthProps) => {
                     placeholder="••••••••••••"
                     errored={passwordErrored}
                     errorText="Пароль должен быть не менее 8 символов"
+                    disabled={props.state === "loading"}
+                    required
                 />
             </div>
 
             <div className={styles.buttonContainer}>
-                <Button style="primary" onClick={handleSubmit}>
+                <Button
+                    style="primary"
+                    onClick={handleSubmit}
+                    disabled={props.state === "loading"}>
                     Войти
                 </Button>
-                <Button style="secondary">Регистрация</Button>
-                <Button style="tertiary">Забыли пароль?</Button>
+                <Button style="secondary" disabled={props.state === "loading"}>
+                    Регистрация
+                </Button>
+                <Button style="tertiary" disabled={props.state === "loading"}>
+                    Забыли пароль?
+                </Button>
             </div>
         </form>
     )

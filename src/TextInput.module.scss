@@ -28,6 +28,13 @@
     }
 }
 
+.disabled {
+    & > input {
+        background-color: var(--c-neutral-100);
+        color: var(--c-neutral-400);
+    }
+}
+
 .error {
     & > input {
         outline-color: var(--c-red-600);

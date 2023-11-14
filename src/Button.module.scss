@@ -19,12 +19,15 @@
     &:focus {
         outline: 3px solid var(--c-blue-600);
     }
+
+    &:disabled {
+        cursor: not-allowed;
+    }
 }
 
 .primary {
     background: var(--c-blue-600);
     color: var(--c-neutral-0);
-    border: 1px solid var(--c-blue-600);
 
     &:hover {
         background: var(--c-blue-700);
@@ -33,6 +36,11 @@
 
     &:active {
         background: var(--c-blue-800);
+    }
+
+    &.disabled {
+        background: var(--c-neutral-300);
+        color: var(--c-neutral-500);
     }
 }
 
@@ -46,6 +54,11 @@
     }
     &:active {
         background: var(--c-blue-200);
+    }
+
+    &.disabled {
+        background: var(--c-neutral-100);
+        color: var(--c-neutral-500);
     }
 }
 
@@ -64,5 +77,10 @@
 
     &:active {
         background: var(--c-neutral-200);
+    }
+
+    &.disabled {
+        background: none;
+        color: var(--c-neutral-300);
     }
 }
