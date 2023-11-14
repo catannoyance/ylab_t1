@@ -1,5 +1,4 @@
 import { Auth } from "./Auth"
-import { TextInput } from "./TextInput"
 import "./index.css"
 
 function App() {

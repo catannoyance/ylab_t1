@@ -13,7 +13,6 @@
         padding: var(--spacing-xs);
         border-radius: var(--border-radius-xs);
 
-        background: var(--c-neutral-50);
         border: none;
         outline: 1px solid var(--c-neutral-300);
 
@@ -23,7 +22,6 @@
     }
 
     > input:focus {
-        outline: 3px solid var(--c-blue-5);
-        background: var(--c-neutral-0);
+        outline: 3px solid var(--c-blue-500);
     }
 }

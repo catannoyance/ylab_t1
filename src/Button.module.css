@@ -1,0 +1,39 @@
+.button {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border: none;
+    cursor: pointer;
+    border-radius: var(--border-radius-sm);
+    font-size: var(--text-sm);
+    line-height: var(--leading-sm);
+    font-weight: 600;
+    border: none;
+    font-family: "Montserrat", sans-serif;
+    text-decoration: none;
+
+    outline: 0px solid var(--c-blue-600);
+    outline-offset: 2px;
+    transition: outline 0.1s ease-out;
+}
+
+.button:focus {
+    outline: 3px solid var(--c-blue-600);
+}
+
+.primary {
+    background: var(--c-blue-600);
+    color: var(--c-neutral-0);
+    border: 1px solid var(--c-blue-600);
+}
+
+.secondary {
+    background: none;
+    color: var(--c-blue-600);
+    border: none;
+}
+
+.tertiary {
+    background: none;
+    border: none;
+    color: var(--c-neutral-500);
+    font-weight: 500;
+}
