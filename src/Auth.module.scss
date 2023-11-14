@@ -33,6 +33,12 @@
     }
 }
 
+.header {
+    text-align: center;
+    font-size: var(--text-xxl);
+    line-height: var(--leading-xl);
+    font-weight: 700;
+    margin: 0;
 }
 
 @media screen and (max-width: 500px) {

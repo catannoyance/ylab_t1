@@ -11,6 +11,8 @@ export const Auth = (props: AuthProps) => {
 
     return (
         <form className={styles.auth}>
+            <h1 className={styles.header}>Вход</h1>
+
             <div className={styles.fieldContainer}>
                 <TextInput
                     label="Email"
