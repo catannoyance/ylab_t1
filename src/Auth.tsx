@@ -11,7 +11,7 @@ export const Auth = (props: AuthProps) => {
 
     return (
         <form className={styles.auth}>
-            <div className={styles.fields}>
+            <div className={styles.fieldContainer}>
                 <TextInput
                     label="Email"
                     value={email}
@@ -19,24 +19,20 @@ export const Auth = (props: AuthProps) => {
                     id="login"
                     placeholder="someone@example.com"
                 />
-                <div>
-                    <TextInput
-                        label="Пароль"
-                        value={password}
-                        onSetValue={setPassword}
-                        hidden
-                        id="password"
-                        placeholder="••••••••••••"
-                    />
-                    <a href="#" tabIndex={1} className={styles.forgotPasswordLink}>
-                        Забыли пароль?
-                    </a>
-                </div>
+                <TextInput
+                    label="Пароль"
+                    value={password}
+                    onSetValue={setPassword}
+                    hidden
+                    id="password"
+                    placeholder="••••••••••••"
+                />
             </div>
 
             <div className={styles.buttonContainer}>
                 <Button label="Войти" style="primary" />
                 <Button label="Регистрация" style="secondary" />
+                <Button label="Забыли пароль?" style="tertiary" />
             </div>
         </form>
     )
