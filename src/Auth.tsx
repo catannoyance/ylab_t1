@@ -28,7 +28,7 @@ export const Auth = (props: AuthProps) => {
     const passwordRef = useRef<HTMLInputElement>(null)
 
     const validateEmail = useCallback((email: string) => {
-        return email.includes("@")
+        return email.match(/^[^@]+@[^@]+$/)
     }, [])
 
     const validatePassword = useCallback((password: string) => {
