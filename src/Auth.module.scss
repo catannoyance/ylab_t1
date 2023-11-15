@@ -10,7 +10,6 @@
 
     border-radius: var(--border-radius-sm);
 
-
     background: var(--c-neutral-50);
 
     box-shadow:
@@ -82,11 +81,10 @@
     }
 
     .errorContainer {
-        background: var(--c-red-600);
-    }
-
-    .errorContainer > span {
-        color: var(--c-neutral-0);
+        background: var(--c-red-900);
+        & > span {
+            color: var(--c-red-50);
+        }
     }
 
     .header {

@@ -19,7 +19,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     (props: TextInputProps, ref) => (
         <div
             className={clsx(
-                styles.main,
+                styles.textInput,
                 props.errored && styles.error,
                 props.disabled && styles.disabled,
             )}>

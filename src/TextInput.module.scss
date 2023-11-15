@@ -1,4 +1,4 @@
-.main {
+.textInput {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-xxs);
@@ -52,7 +52,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-    .main {
+    .textInput {
         & > label {
             color: var(--c-neutral-200);
         }
@@ -77,12 +77,12 @@
         &.error {
             & > input {
                 background-color: var(--c-neutral-800);
-                color: var(--c-red-600);
+                color: var(--c-red-500);
             }
         }
 
-        &.errorText {
-            color: var(--c-red-600);
+        & > .errorText {
+            color: var(--c-red-500);
         }
     }
 }
