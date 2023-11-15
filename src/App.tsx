@@ -45,14 +45,14 @@ function App() {
             try {
                 const response = await fetchPromise
                 if (response.status === 200) {
-                    console.log("signed in!")
+                    alert(
+                        "Успешно! На настоящей странице тут было бы перенаправление на другую страницу, а пока вот вам алерт.",
+                    )
                     setState("waiting")
                 } else if (response.status === 401) {
-                    console.log("invalid credentials з:")
                     setErrorType("invalid-credentials")
                     setState("error")
                 } else {
-                    console.log("what")
                     setErrorType("unknown")
                     setState("error")
                 }
