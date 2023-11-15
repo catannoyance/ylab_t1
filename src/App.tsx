@@ -78,6 +78,8 @@ function App() {
             style={{
                 height: "100%",
                 display: "flex",
+                flexDirection: "column",
+                gap: "8px",
                 justifyContent: "center",
                 alignItems: "center",
             }}>
@@ -88,6 +90,12 @@ function App() {
                 state={state}
                 error={errorType}
             />
+
+            <span
+                style={{ fontSize: "var(--text-xs)", textAlign: "center", opacity: 0.5 }}>
+                в целях тестирования: <br />
+                someone@example.com / password
+            </span>
         </div>
     )
 }
