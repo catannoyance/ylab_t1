@@ -77,7 +77,7 @@
     }
     .error {
         & > input {
-            outline: var(--c-red-500);
+            outline-color: var(--c-red-500);
         }
     }
 
