@@ -1,5 +1,6 @@
 import clsx from "clsx"
 import styles from "./TextInput.module.scss"
+import { forwardRef } from "react"
 
 type TextInputProps = {
     value: string
@@ -14,8 +15,8 @@ type TextInputProps = {
     required?: boolean
 }
 
-export const TextInput = (props: TextInputProps) => {
-    return (
+export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
+    (props: TextInputProps, ref) => (
         <div
             className={clsx(
                 styles.main,
@@ -24,6 +25,7 @@ export const TextInput = (props: TextInputProps) => {
             )}>
             {props.label && <label htmlFor={props.id}>{props.label}</label>}
             <input
+                ref={ref}
                 className={styles.input}
                 type={props.hidden ? "password" : "text"}
                 value={props.value}
@@ -47,5 +49,5 @@ export const TextInput = (props: TextInputProps) => {
                 </span>
             )}
         </div>
-    )
-}
+    ),
+)

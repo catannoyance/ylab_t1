@@ -1,6 +1,6 @@
 import { TextInput } from "./TextInput"
 import styles from "./Auth.module.scss"
-import { useCallback, useId, useState } from "react"
+import { useCallback, useId, useRef, useState } from "react"
 import { Button } from "./Button"
 
 type AuthProps = {
@@ -17,6 +17,9 @@ export const Auth = (props: AuthProps) => {
 
     const [emailErrored, setEmailErrored] = useState(false)
     const [passwordErrored, setPasswordErrored] = useState(false)
+
+    const emailRef = useRef<HTMLInputElement>(null)
+    const passwordRef = useRef<HTMLInputElement>(null)
 
     const validateEmail = useCallback((email: string) => {
         return email.includes("@")
@@ -37,21 +40,23 @@ export const Auth = (props: AuthProps) => {
     }, [])
 
     const handleSubmit = useCallback(() => {
-        setEmailErrored(!validateEmail(email))
-        setPasswordErrored(!validatePassword(password))
+        const passwordErrored = !validatePassword(password)
+        const emailErrored = !validateEmail(email)
+
+        setPasswordErrored(passwordErrored)
+        if (passwordErrored && passwordRef.current) {
+            passwordRef.current.focus()
+        }
+
+        setEmailErrored(emailErrored)
+        if (emailErrored && emailRef.current) {
+            emailRef.current.focus()
+        }
 
         if (emailErrored || passwordErrored) return
 
         props.onSignIn(email, password)
-    }, [
-        validateEmail,
-        email,
-        validatePassword,
-        password,
-        emailErrored,
-        passwordErrored,
-        props,
-    ])
+    }, [validateEmail, email, validatePassword, password, props])
 
     const emailFieldId = useId()
     const passwordFieldId = useId()
@@ -62,6 +67,7 @@ export const Auth = (props: AuthProps) => {
 
             <div className={styles.fieldContainer}>
                 <TextInput
+                    ref={emailRef}
                     label="Email"
                     value={email}
                     onSetValue={handleEmailEdit}
@@ -73,6 +79,7 @@ export const Auth = (props: AuthProps) => {
                     required
                 />
                 <TextInput
+                    ref={passwordRef}
                     label="Пароль"
                     value={password}
                     onSetValue={handlePasswordEdit}
