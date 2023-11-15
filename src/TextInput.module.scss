@@ -73,15 +73,14 @@
                 color: var(--c-neutral-400);
             }
         }
-
-        &.error {
-            & > input {
-                outline-color: var(--c-red-500);
-            }
+    }
+    .error {
+        & > input {
+            outline-color: var(--c-red-500);
         }
+    }
 
-        & > .errorText {
-            color: var(--c-red-500);
-        }
+    .errorText {
+        color: var(--c-red-500);
     }
 }
