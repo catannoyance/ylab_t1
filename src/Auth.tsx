@@ -1,6 +1,6 @@
 import { TextInput } from "./TextInput"
 import styles from "./Auth.module.scss"
-import { useCallback, useEffect, useId, useRef, useState } from "react"
+import { FormEvent, useCallback, useEffect, useId, useRef, useState } from "react"
 import { Button } from "./Button"
 import { Checkbox } from "./Checkbox"
 
@@ -26,6 +26,7 @@ export const Auth = (props: AuthProps) => {
 
     const emailRef = useRef<HTMLInputElement>(null)
     const passwordRef = useRef<HTMLInputElement>(null)
+    const formRef = useRef<HTMLFormElement>(null)
 
     const validateEmail = useCallback((email: string) => {
         return email.match(/^[^@]+@[^@]+$/)
@@ -45,29 +46,33 @@ export const Auth = (props: AuthProps) => {
         setPasswordErrored(false)
     }, [])
 
-    const handleSubmit = useCallback(() => {
-        const passwordErrored = !validatePassword(password)
-        const emailErrored = !validateEmail(email)
+    const handleSubmit = useCallback(
+        (ev: FormEvent<HTMLFormElement>) => {
+            ev.preventDefault()
 
-        setPasswordErrored(passwordErrored)
-        if (passwordErrored && passwordRef.current) {
-            passwordRef.current.focus()
-        }
+            const passwordErrored = !validatePassword(password)
+            const emailErrored = !validateEmail(email)
 
-        setEmailErrored(emailErrored)
-        if (emailErrored && emailRef.current) {
-            emailRef.current.focus()
-        }
+            setPasswordErrored(passwordErrored)
+            if (passwordErrored && passwordRef.current) {
+                passwordRef.current.focus()
+            }
 
-        if (emailErrored || passwordErrored) return
+            setEmailErrored(emailErrored)
+            if (emailErrored && emailRef.current) {
+                emailRef.current.focus()
+            }
 
-        props.onSignIn(email, password, rememberMe)
-    }, [validatePassword, password, validateEmail, email, props, rememberMe])
+            if (!emailErrored && !passwordErrored)
+                props.onSignIn(email, password, rememberMe)
+
+            return false
+        },
+        [validatePassword, password, validateEmail, email, props, rememberMe],
+    )
 
     const emailFieldId = useId()
     const passwordFieldId = useId()
-
-    const formRef = useRef<HTMLFormElement>(null)
 
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
@@ -75,7 +80,7 @@ export const Auth = (props: AuthProps) => {
             const isAnyInputActive = document.activeElement?.tagName === "INPUT"
 
             if (event.key === "Enter" && isAnyInputActive) {
-                handleSubmit()
+                formRef.current?.requestSubmit()
             }
         }
 
@@ -87,7 +92,7 @@ export const Auth = (props: AuthProps) => {
     }, [handleSubmit, formRef])
 
     return (
-        <form className={styles.auth} ref={formRef}>
+        <form className={styles.auth} ref={formRef} onSubmit={handleSubmit}>
             <h1 className={styles.header}>Вход</h1>
 
             <div className={styles.fieldContainer}>
@@ -138,8 +143,8 @@ export const Auth = (props: AuthProps) => {
             <div className={styles.buttonContainer}>
                 <Button
                     style="primary"
-                    onClick={handleSubmit}
-                    disabled={props.state === "loading"}>
+                    disabled={props.state === "loading"}
+                    type="submit">
                     Войти
                 </Button>
                 <Button

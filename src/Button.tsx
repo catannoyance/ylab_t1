@@ -7,6 +7,7 @@ type ButtonProps = {
     onClick?: () => void
 
     disabled?: boolean
+    type?: HTMLButtonElement["type"]
 }
 
 export const Button = (props: ButtonProps) => {
@@ -19,7 +20,7 @@ export const Button = (props: ButtonProps) => {
             )}
             disabled={props.disabled}
             onClick={props.onClick}
-            type="button">
+            type={props.type || "button"}>
             {props.children}
         </button>
     )
