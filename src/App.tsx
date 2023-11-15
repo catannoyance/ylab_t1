@@ -30,37 +30,40 @@ function App() {
     const [state, setState] = useState<AuthState>("waiting")
     const [errorType, setErrorType] = useState<AuthError | undefined>(undefined)
 
-    const auth = useCallback(async (email: string, password: string) => {
-        setState("loading")
+    const auth = useCallback(
+        async (email: string, password: string, rememberMe: boolean) => {
+            setState("loading")
 
-        const fetchPromise = fakeFetch("/api/sign-in", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ email, password }),
-        })
+            const fetchPromise = fakeFetch("/api/sign-in", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email, password, rememberMe }),
+            })
 
-        try {
-            const response = await fetchPromise
-            if (response.status === 200) {
-                console.log("signed in!")
-                setState("waiting")
-            } else if (response.status === 401) {
-                console.log("invalid credentials з:")
-                setErrorType("invalid-credentials")
-                setState("error")
-            } else {
-                console.log("what")
+            try {
+                const response = await fetchPromise
+                if (response.status === 200) {
+                    console.log("signed in!")
+                    setState("waiting")
+                } else if (response.status === 401) {
+                    console.log("invalid credentials з:")
+                    setErrorType("invalid-credentials")
+                    setState("error")
+                } else {
+                    console.log("what")
+                    setErrorType("unknown")
+                    setState("error")
+                }
+            } catch (e) {
+                console.error(e)
                 setErrorType("unknown")
                 setState("error")
             }
-        } catch (e) {
-            console.error(e)
-            setErrorType("unknown")
-            setState("error")
-        }
-    }, [])
+        },
+        [],
+    )
 
     return (
         <div

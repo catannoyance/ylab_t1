@@ -1,0 +1,98 @@
+.checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-xs);
+
+    & > input {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        width: 1.25rem;
+        height: 1.25rem;
+        border: 1px solid var(--c-neutral-400);
+        border-radius: var(--border-radius-xs);
+        overflow: hidden;
+        outline: none;
+        position: relative;
+        margin: 0;
+
+        background-color: var(--c-neutral-0);
+        transition:
+            background-color 0.15s ease,
+            outline-width 0.1s ease;
+
+        // checkmark
+        &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0.125rem;
+            left: 0.35rem;
+            width: 0.25rem;
+            height: 0.5rem;
+            border: solid white;
+            border-width: 0 0.2rem 0.2rem 0;
+            transform: rotate(45deg);
+        }
+
+        // cover up the checkmark while unchecked
+        &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            background-color: white;
+            transform: scale(1);
+            transition: transform 0.15s ease;
+        }
+
+        &:checked {
+            &::after {
+                transform: scale(0);
+            }
+            border-color: var(--c-blue-600);
+            background-color: var(--c-blue-600);
+        }
+
+        outline: 0px solid var(--c-blue-500);
+
+        &:hover {
+            background: var(--c-blue-700);
+        }
+
+        &:active {
+            background: var(--c-blue-800);
+        }
+
+        &:focus {
+            outline-width: 3px;
+            outline-offset: 1px;
+        }
+    }
+
+    & > label {
+        font-size: var(--text-sm);
+        line-height: var(--leading-sm);
+        font-weight: 500;
+        user-select: none;
+    }
+}
+
+.disabled {
+    & > input {
+        background-color: var(--c-neutral-100);
+
+        &:after {
+            background-color: var(--c-neutral-200);
+        }
+        
+        &:checked {
+            background-color: var(--c-neutral-500);
+            border-color: var(--c-neutral-500);
+        }
+    }
+}

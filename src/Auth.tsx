@@ -2,12 +2,13 @@ import { TextInput } from "./TextInput"
 import styles from "./Auth.module.scss"
 import { useCallback, useEffect, useId, useRef, useState } from "react"
 import { Button } from "./Button"
+import { Checkbox } from "./Checkbox"
 
 export type AuthState = "waiting" | "loading" | "error"
 export type AuthError = "invalid-credentials" | "unknown"
 
 type AuthProps = {
-    onSignIn: (email: string, password: string) => void
+    onSignIn: (email: string, password: string, rememberMe: boolean) => void
     onSignUp: () => void
     onForgotPassword: () => void
 
@@ -18,6 +19,7 @@ type AuthProps = {
 export const Auth = (props: AuthProps) => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [rememberMe, setRememberMe] = useState(true)
 
     const [emailErrored, setEmailErrored] = useState(false)
     const [passwordErrored, setPasswordErrored] = useState(false)
@@ -59,8 +61,8 @@ export const Auth = (props: AuthProps) => {
 
         if (emailErrored || passwordErrored) return
 
-        props.onSignIn(email, password)
-    }, [validateEmail, email, validatePassword, password, props])
+        props.onSignIn(email, password, rememberMe)
+    }, [validatePassword, password, validateEmail, email, props, rememberMe])
 
     const emailFieldId = useId()
     const passwordFieldId = useId()
@@ -113,6 +115,13 @@ export const Auth = (props: AuthProps) => {
                     errorText="Пароль должен быть не менее 8 символов"
                     disabled={props.state === "loading"}
                     required
+                />
+
+                <Checkbox
+                    label="Запомнить меня"
+                    checked={rememberMe}
+                    onChange={setRememberMe}
+                    disabled={props.state === "loading"}
                 />
 
                 {props.state == "error" && (
