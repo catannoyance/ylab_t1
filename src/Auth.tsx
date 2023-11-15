@@ -4,6 +4,7 @@ import { useCallback, useId, useRef, useState } from "react"
 import { Button } from "./Button"
 
 export type AuthState = "waiting" | "loading" | "error"
+export type AuthError = "invalid-credentials" | "unknown"
 
 type AuthProps = {
     onSignIn: (email: string, password: string) => void
@@ -11,6 +12,7 @@ type AuthProps = {
     onForgotPassword: () => void
 
     state: AuthState
+    error?: AuthError
 }
 
 export const Auth = (props: AuthProps) => {
@@ -93,6 +95,16 @@ export const Auth = (props: AuthProps) => {
                     disabled={props.state === "loading"}
                     required
                 />
+
+                {props.state == "error" && (
+                    <div className={styles.errorContainer}>
+                        <span role="alert">
+                            {props.error === "invalid-credentials"
+                                ? "Неверный адрес почты или пароль."
+                                : "Неизвестная ошибка. Попробуйте обновить страницу."}
+                        </span>
+                    </div>
+                )}
             </div>
 
             <div className={styles.buttonContainer}>

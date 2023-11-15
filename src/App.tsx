@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react"
-import { Auth, AuthState } from "./Auth"
+import { Auth, AuthError, AuthState } from "./Auth"
 import "./index.scss"
 
 const fakeFetch: typeof fetch = async (url, options) => {
@@ -28,6 +28,7 @@ const fakeFetch: typeof fetch = async (url, options) => {
 
 function App() {
     const [state, setState] = useState<AuthState>("waiting")
+    const [errorType, setErrorType] = useState<AuthError | undefined>(undefined)
 
     const auth = useCallback(async (email: string, password: string) => {
         setState("loading")
@@ -47,13 +48,16 @@ function App() {
                 setState("waiting")
             } else if (response.status === 401) {
                 console.log("invalid credentials з:")
+                setErrorType("invalid-credentials")
                 setState("error")
             } else {
                 console.log("what")
+                setErrorType("unknown")
                 setState("error")
             }
         } catch (e) {
             console.error(e)
+            setErrorType("unknown")
             setState("error")
         }
     }, [])
@@ -71,6 +75,7 @@ function App() {
                 onForgotPassword={() => {}}
                 onSignUp={() => {}}
                 state={state}
+                error={errorType}
             />
         </div>
     )

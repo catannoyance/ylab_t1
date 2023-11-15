@@ -21,6 +21,22 @@
     gap: var(--spacing-sm);
 }
 
+.errorContainer {
+    user-select: none;
+    background: var(--c-red-100);
+    padding: var(--spacing-xs);
+    border-radius: var(--border-radius-sm);
+    text-align: center;
+
+    & > span {
+        font-size: var(--text-sm);
+        line-height: var(--leading-sm);
+
+        color: var(--c-red-600);
+        font-weight: 500;
+    }
+}
+
 .buttonContainer {
     display: grid;
 
