@@ -3,12 +3,14 @@ import styles from "./Auth.module.scss"
 import { useCallback, useId, useRef, useState } from "react"
 import { Button } from "./Button"
 
+export type AuthState = "waiting" | "loading" | "error"
+
 type AuthProps = {
     onSignIn: (email: string, password: string) => void
     onSignUp: () => void
     onForgotPassword: () => void
 
-    state: "waiting" | "loading" | "error"
+    state: AuthState
 }
 
 export const Auth = (props: AuthProps) => {
