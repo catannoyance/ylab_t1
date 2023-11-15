@@ -67,9 +67,11 @@
 @media screen and (max-width: 600px) {
     .auth {
         width: 100%;
+        box-sizing: border-box;
         max-width: 24em;
         border: none;
         box-shadow: none;
+        padding: var(--spacing-sm);
     }
 }
 

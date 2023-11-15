@@ -3,6 +3,7 @@ import styles from "./Auth.module.scss"
 import { FormEvent, useCallback, useEffect, useId, useRef, useState } from "react"
 import { Button } from "./Button"
 import { Checkbox } from "./Checkbox"
+import { LoadingSpinner } from "./LoadingSpinner"
 
 export type AuthState = "waiting" | "loading" | "error"
 export type AuthError = "invalid-credentials" | "unknown"
@@ -145,7 +146,7 @@ export const Auth = (props: AuthProps) => {
                     style="primary"
                     disabled={props.state === "loading"}
                     type="submit">
-                    Войти
+                    {props.state === "loading" ? <LoadingSpinner /> : "Войти"}
                 </Button>
                 <Button
                     style="secondary"
