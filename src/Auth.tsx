@@ -91,6 +91,16 @@ export const Auth = (props: AuthProps) => {
             <h1 className={styles.header}>Вход</h1>
 
             <div className={styles.fieldContainer}>
+                {props.state == "error" && (
+                    <div className={styles.errorContainer}>
+                        <span role="alert">
+                            {props.error === "invalid-credentials"
+                                ? "Неверный адрес почты или пароль."
+                                : "Неизвестная ошибка. Попробуйте обновить страницу."}
+                        </span>
+                    </div>
+                )}
+
                 <TextInput
                     ref={emailRef}
                     label="Email"
@@ -112,7 +122,7 @@ export const Auth = (props: AuthProps) => {
                     id={passwordFieldId}
                     placeholder="••••••••••••"
                     errored={passwordErrored}
-                    errorText="Пароль должен быть не менее 8 символов"
+                    errorText="Пароль должен содержать не менее 8 символов"
                     disabled={props.state === "loading"}
                     required
                 />
@@ -123,16 +133,6 @@ export const Auth = (props: AuthProps) => {
                     onChange={setRememberMe}
                     disabled={props.state === "loading"}
                 />
-
-                {props.state == "error" && (
-                    <div className={styles.errorContainer}>
-                        <span role="alert">
-                            {props.error === "invalid-credentials"
-                                ? "Неверный адрес почты или пароль."
-                                : "Неизвестная ошибка. Попробуйте обновить страницу."}
-                        </span>
-                    </div>
-                )}
             </div>
 
             <div className={styles.buttonContainer}>

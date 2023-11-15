@@ -17,6 +17,7 @@
         position: relative;
         margin: 0;
 
+        outline: 0px solid var(--c-blue-500);
         background-color: var(--c-neutral-0);
         transition:
             background-color 0.15s ease,
@@ -45,7 +46,7 @@
             right: 0;
             left: 0;
             bottom: 0;
-            background-color: white;
+            background: var(--c-neutral-0);
             transform: scale(1);
             transition: transform 0.15s ease;
         }
@@ -58,14 +59,18 @@
             background-color: var(--c-blue-600);
         }
 
-        outline: 0px solid var(--c-blue-500);
-
         &:hover {
             background: var(--c-blue-700);
+            &::after {
+                background: var(--c-neutral-100);
+            }
         }
 
         &:active {
             background: var(--c-blue-800);
+            &::after {
+                background: var(--c-neutral-200);
+            }
         }
 
         &:focus {
@@ -89,7 +94,7 @@
         &:after {
             background-color: var(--c-neutral-200);
         }
-        
+
         &:checked {
             background-color: var(--c-neutral-500);
             border-color: var(--c-neutral-500);

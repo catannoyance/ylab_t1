@@ -7,7 +7,7 @@
     font-size: var(--text-sm);
     line-height: var(--leading-sm);
     font-weight: 600;
-    font-family: "Montserrat", sans-serif;
+    font-family: inherit;
 
     outline: 0px solid var(--c-blue-600);
     outline-offset: 2px;
@@ -17,7 +17,7 @@
     user-select: none;
 
     &:focus {
-        outline: 3px solid var(--c-blue-600);
+        outline: 3px solid var(--c-blue-500);
     }
 
     &:disabled {
@@ -31,7 +31,6 @@
 
     &:hover {
         background: var(--c-blue-700);
-        outline-color: var(--c-blue-700);
     }
 
     &:active {
