@@ -1,6 +1,6 @@
 import { TextInput } from "./TextInput"
 import styles from "./Auth.module.scss"
-import { useCallback, useId, useRef, useState } from "react"
+import { useCallback, useEffect, useId, useRef, useState } from "react"
 import { Button } from "./Button"
 
 export type AuthState = "waiting" | "loading" | "error"
@@ -65,8 +65,27 @@ export const Auth = (props: AuthProps) => {
     const emailFieldId = useId()
     const passwordFieldId = useId()
 
+    const formRef = useRef<HTMLFormElement>(null)
+
+    useEffect(() => {
+        const handleKeyDown = (event: KeyboardEvent) => {
+            // this should not trigger when trying to press "sign up" or "forgot password"
+            const isAnyInputActive = document.activeElement?.tagName === "INPUT"
+
+            if (event.key === "Enter" && isAnyInputActive) {
+                handleSubmit()
+            }
+        }
+
+        const form = formRef.current
+        form?.addEventListener("keydown", handleKeyDown)
+        return () => {
+            form?.removeEventListener("keydown", handleKeyDown)
+        }
+    }, [handleSubmit, formRef])
+
     return (
-        <form className={styles.auth}>
+        <form className={styles.auth} ref={formRef}>
             <h1 className={styles.header}>Вход</h1>
 
             <div className={styles.fieldContainer}>
