@@ -7,10 +7,8 @@ type TextInputProps = {
     placeholder?: string
     label?: string
     id: string
-    
     errored: boolean
     errorText?: string
-    
     hidden?: boolean
     disabled?: boolean
     required?: boolean
@@ -33,15 +31,18 @@ export const TextInput = (props: TextInputProps) => {
                 placeholder={props.placeholder}
                 id={props.id}
                 aria-errormessage={props.errored ? `${props.id}-error` : undefined}
+                aria-describedby={props.errored ? `${props.id}-error` : undefined}
                 aria-invalid={props.errored}
                 role="textbox"
                 disabled={props.disabled}
-
                 required={props.required}
             />
 
             {props.errored && props.errorText && (
-                <span id={`${props.id}-error`} className={styles.errorText}>
+                <span
+                    id={`${props.id}-error`}
+                    className={styles.errorText}
+                    aria-live="polite">
                     {props.errorText}
                 </span>
             )}
