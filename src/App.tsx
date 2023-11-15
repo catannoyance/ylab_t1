@@ -93,7 +93,7 @@ function App() {
 
             <span
                 style={{ fontSize: "var(--text-xs)", textAlign: "center", opacity: 0.5 }}>
-                в целях тестирования: <br />
+                правильный адрес/пароль: <br />
                 someone@example.com / password
             </span>
         </div>

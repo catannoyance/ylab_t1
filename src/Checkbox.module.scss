@@ -90,6 +90,7 @@
 .disabled {
     & > input {
         background-color: var(--c-neutral-100);
+        cursor: not-allowed;
 
         &:after {
             background-color: var(--c-neutral-200);
