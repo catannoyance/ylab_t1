@@ -33,7 +33,7 @@
 .disabled {
     & > input {
         cursor: not-allowed;
-        background-color: var(--c-neutral-100);
+        background: var(--c-neutral-100);
         color: var(--c-neutral-400);
     }
 }
@@ -70,14 +70,14 @@
 
         &.disabled {
             & > input {
-                background-color: var(--c-neutral-800);
+                background: var(--c-neutral-800);
                 color: var(--c-neutral-400);
             }
         }
     }
     .error {
         & > input {
-            outline-color: var(--c-red-500);
+            outline: var(--c-red-500);
         }
     }
 

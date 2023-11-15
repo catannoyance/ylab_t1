@@ -48,10 +48,10 @@
     background: var(--c-blue-100);
 
     &:hover {
-        background: var(--c-blue-100);
+        background: var(--c-blue-200);
     }
     &:active {
-        background: var(--c-blue-200);
+        background: var(--c-blue-300);
     }
 
     &.disabled {
@@ -70,16 +70,16 @@
     text-decoration: none;
 
     &:hover {
-        background: var(--c-neutral-100);
+        background: var(--c-neutral-200);
     }
 
     &:active {
-        background: var(--c-neutral-200);
+        background: var(--c-neutral-300);
     }
 
     &.disabled {
         background: none;
-        color: var(--c-neutral-300);
+        color: var(--c-neutral-400);
     }
 }
 
@@ -105,11 +105,11 @@
         color: var(--c-neutral-400);
 
         &:hover {
-            background: var(--c-neutral-900);
+            background: var(--c-neutral-800);
         }
 
         &:active {
-            background: var(--c-neutral-800);
+            background: var(--c-neutral-700);
         }
 
         &.disabled {

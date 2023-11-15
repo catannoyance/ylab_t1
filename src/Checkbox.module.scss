@@ -10,17 +10,21 @@
         -moz-appearance: none;
         width: 1.25rem;
         height: 1.25rem;
-        border: 1px solid var(--c-neutral-400);
-        border-radius: var(--border-radius-xs);
+
         overflow: hidden;
         outline: none;
         position: relative;
         margin: 0;
 
+        border: 1px solid var(--c-neutral-400);
+        border-radius: var(--border-radius-xs);
         outline: 0px solid var(--c-blue-500);
-        background-color: var(--c-neutral-0);
+        outline-offset: 1px;
+        background: var(--c-neutral-0);
+
         transition:
             background-color 0.15s ease,
+            border-color 0.15s ease,
             outline-width 0.1s ease;
 
         // checkmark
@@ -56,11 +60,12 @@
                 transform: scale(0);
             }
             border-color: var(--c-blue-600);
-            background-color: var(--c-blue-600);
+            background: var(--c-blue-600);
         }
 
         &:hover {
             background: var(--c-blue-700);
+            border-color: var(--c-blue-700);
             &::after {
                 background: var(--c-neutral-100);
             }
@@ -68,6 +73,7 @@
 
         &:active {
             background: var(--c-blue-800);
+            border-color: var(--c-blue-800);
             &::after {
                 background: var(--c-neutral-200);
             }
@@ -75,7 +81,6 @@
 
         &:focus {
             outline-width: 3px;
-            outline-offset: 1px;
         }
     }
 
@@ -89,15 +94,15 @@
 
 .disabled {
     & > input {
-        background-color: var(--c-neutral-100);
+        background: var(--c-neutral-100);
         cursor: not-allowed;
 
         &:after {
-            background-color: var(--c-neutral-200);
+            background: var(--c-neutral-200);
         }
 
         &:checked {
-            background-color: var(--c-neutral-500);
+            background: var(--c-neutral-500);
             border-color: var(--c-neutral-500);
         }
     }
@@ -106,24 +111,32 @@
 @media (prefers-color-scheme: dark) {
     .checkbox {
         & > input {
-            background-color: var(--c-neutral-800);
+            background: var(--c-neutral-800);
             border-color: var(--c-neutral-600);
 
             &::after {
-                background-color: var(--c-neutral-900);
+                background: var(--c-neutral-900);
             }
 
             &:checked {
-                background-color: var(--c-blue-600);
+                background: var(--c-blue-600);
                 border-color: var(--c-blue-600);
             }
 
-            &:hover::after {
-                background: var(--c-neutral-800);
+            &:hover {
+                background: var(--c-blue-700);
+                border-color: var(--c-blue-700);
+                &::after {
+                    background: var(--c-neutral-700);
+                }
             }
 
-            &:active::after {
-                background: var(--c-neutral-700);
+            &:active {
+                background: var(--c-blue-800);
+                border-color: var(--c-blue-800);
+                &::after {
+                    background: var(--c-neutral-800);
+                }
             }
         }
 
