@@ -101,3 +101,33 @@
         }
     }
 }
+
+@media (prefers-color-scheme: dark) {
+    .checkbox {
+        & > input {
+            background-color: var(--c-neutral-800);
+            border-color: var(--c-neutral-600);
+
+            &::after {
+                background-color: var(--c-neutral-900);
+            }
+
+            &:checked {
+                background-color: var(--c-blue-600);
+                border-color: var(--c-blue-600);
+            }
+
+            &:hover::after {
+                background: var(--c-neutral-800);
+            }
+
+            &:active::after {
+                background: var(--c-neutral-700);
+            }
+        }
+
+        & > label {
+            color: var(--c-neutral-200);
+        }
+    }
+}

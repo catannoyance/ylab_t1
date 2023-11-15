@@ -50,3 +50,39 @@
     color: var(--c-red-600);
     font-weight: 500;
 }
+
+@media (prefers-color-scheme: dark) {
+    .main {
+        & > label {
+            color: var(--c-neutral-200);
+        }
+
+        & > input {
+            background: none;
+            color: var(--c-neutral-200);
+            outline: 1px solid var(--c-neutral-700);
+
+            &::placeholder {
+                color: var(--c-neutral-600);
+            }
+        }
+
+        &.disabled {
+            & > input {
+                background-color: var(--c-neutral-700);
+                color: var(--c-neutral-400);
+            }
+        }
+
+        &.error {
+            & > input {
+                background-color: var(--c-neutral-800);
+                color: var(--c-red-600);
+            }
+        }
+
+        &.errorText {
+            color: var(--c-red-600);
+        }
+    }
+}

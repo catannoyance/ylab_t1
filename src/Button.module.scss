@@ -44,7 +44,6 @@
 }
 
 .secondary {
-    background: 1px solid transparent;
     color: var(--c-blue-600);
     background: var(--c-blue-50);
 
@@ -81,5 +80,41 @@
     &.disabled {
         background: none;
         color: var(--c-neutral-300);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .secondary {
+        color: var(--c-blue-400);
+        background: var(--c-blue-950);
+
+        &:hover {
+            background: var(--c-blue-900);
+        }
+        &:active {
+            background: var(--c-blue-800);
+        }
+
+        &.disabled {
+            background: var(--c-neutral-900);
+            color: var(--c-neutral-500);
+        }
+    }
+
+    .tertiary {
+        color: var(--c-neutral-400);
+
+        &:hover {
+            background: var(--c-neutral-900);
+        }
+
+        &:active {
+            background: var(--c-neutral-800);
+        }
+
+        &.disabled {
+            background: none;
+            color: var(--c-neutral-300);
+        }
     }
 }

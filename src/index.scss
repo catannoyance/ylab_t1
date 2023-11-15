@@ -34,6 +34,8 @@
     --c-blue-600: #2563eb;
     --c-blue-700: #1d4ed8;
     --c-blue-800: #1e40af;
+    --c-blue-900: #1e3a8a;
+    --c-blue-950: #172554;
 
     --c-red-100: #fee2e2;
     --c-red-200: #fecaca;
@@ -65,4 +67,30 @@ html,
 body,
 #root {
     height: 100%;
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --c-neutral-50: #fafafa;
+        --c-neutral-100: #f4f4f5;
+        --c-neutral-200: #e4e4e7;
+        --c-neutral-300: #d4d4d8;
+        --c-neutral-400: #a1a1aa;
+        --c-neutral-500: #71717a;
+        --c-neutral-600: #52525b;
+        --c-neutral-700: #3f3f46;
+        --c-neutral-800: #27272a;
+        --c-neutral-900: #18181b;
+        --c-neutral-950: #09090b;
+    }
+
+    body {
+        background: var(--c-neutral-950);
+        color: var(--c-neutral-200);
+    }
+
+    @media screen and (max-width: 600px) {
+        body {
+            background: var(--c-neutral-900);
+        }
+    }
 }

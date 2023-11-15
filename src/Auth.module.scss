@@ -70,3 +70,29 @@
         box-shadow: none;
     }
 }
+
+@media (prefers-color-scheme: dark) {
+    .auth {
+        border: 1px solid var(--c-neutral-800);
+        background: var(--c-neutral-900);
+        box-shadow: none;
+    }
+
+    .errorContainer {
+        background: var(--c-red-600);
+    }
+
+    .errorContainer > span {
+        color: var(--c-neutral-0);
+    }
+
+    .header {
+        color: var(--c-neutral-200);
+    }
+
+    @media screen and (max-width: 600px) {
+        .auth {
+            border: none;
+        }
+    }
+}
