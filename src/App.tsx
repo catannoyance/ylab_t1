@@ -30,7 +30,7 @@ function App() {
     const [state, setState] = useState<AuthState>("waiting")
     const [errorType, setErrorType] = useState<AuthError | undefined>(undefined)
 
-    const auth = useCallback(
+    const handleAuth = useCallback(
         async (email: string, password: string, rememberMe: boolean) => {
             setState("loading")
 
@@ -46,7 +46,7 @@ function App() {
                 const response = await fetchPromise
                 if (response.status === 200) {
                     alert(
-                        "Успешно! На настоящей странице тут было бы перенаправление на другую страницу, а пока вот вам алерт.",
+                        "Успешно! На настоящем сайте тут, скорее всего, было бы перенаправление на другую страницу, а пока вот вам алерт.",
                     )
                     setState("waiting")
                 } else if (response.status === 401) {
@@ -65,6 +65,14 @@ function App() {
         [],
     )
 
+    const handleSignup = useCallback(() => {
+        alert("а кнопка регистрации заданием не предусмотрена :з")
+    }, [])
+
+    const handleForgotPassword = useCallback(() => {
+        alert("а кнопка сброса пароля заданием не предусмотрена :з")
+    }, [])
+
     return (
         <div
             style={{
@@ -74,9 +82,9 @@ function App() {
                 alignItems: "center",
             }}>
             <Auth
-                onSignIn={auth}
-                onForgotPassword={() => {}}
-                onSignUp={() => {}}
+                onSignIn={handleAuth}
+                onSignUp={handleSignup}
+                onForgotPassword={handleForgotPassword}
                 state={state}
                 error={errorType}
             />

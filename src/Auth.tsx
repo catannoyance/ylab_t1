@@ -142,10 +142,16 @@ export const Auth = (props: AuthProps) => {
                     disabled={props.state === "loading"}>
                     Войти
                 </Button>
-                <Button style="secondary" disabled={props.state === "loading"}>
+                <Button
+                    style="secondary"
+                    onClick={props.onSignUp}
+                    disabled={props.state === "loading"}>
                     Регистрация
                 </Button>
-                <Button style="tertiary" disabled={props.state === "loading"}>
+                <Button
+                    style="tertiary"
+                    onClick={props.onForgotPassword}
+                    disabled={props.state === "loading"}>
                     Забыли пароль?
                 </Button>
             </div>
