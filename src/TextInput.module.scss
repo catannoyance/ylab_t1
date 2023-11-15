@@ -6,6 +6,7 @@
     & > label {
         font-size: var(--text-sm);
         font-weight: 600;
+        user-select: none;
     }
 
     & > input {
@@ -24,6 +25,7 @@
 
         &::placeholder {
             color: var(--c-neutral-400);
+            user-select: none;
         }
     }
 }

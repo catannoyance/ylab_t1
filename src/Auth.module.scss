@@ -59,6 +59,7 @@
     line-height: var(--leading-xl);
     font-weight: 700;
     margin: 0;
+    user-select: none;
 }
 
 @media screen and (max-width: 600px) {
