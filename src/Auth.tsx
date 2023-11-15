@@ -72,9 +72,6 @@ export const Auth = (props: AuthProps) => {
         [validatePassword, password, validateEmail, email, props, rememberMe],
     )
 
-    const emailFieldId = useId()
-    const passwordFieldId = useId()
-
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
             // this should not trigger when trying to press "sign up" or "forgot password"
@@ -112,7 +109,6 @@ export const Auth = (props: AuthProps) => {
                     label="Email"
                     value={email}
                     onSetValue={handleEmailEdit}
-                    id={emailFieldId}
                     placeholder="someone@example.com"
                     errored={emailErrored}
                     errorText="Неверный формат email"
@@ -125,7 +121,6 @@ export const Auth = (props: AuthProps) => {
                     value={password}
                     onSetValue={handlePasswordEdit}
                     hidden
-                    id={passwordFieldId}
                     placeholder="••••••••••••"
                     errored={passwordErrored}
                     errorText="Пароль должен содержать не менее 8 символов"
