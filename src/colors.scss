@@ -91,7 +91,8 @@
     --c-component-label--error: var(--red-600);
 
     --c-text--base: var(--gray-800);
-    --c-text--subdued: var(--gray-600);
+    --c-text--subdued: var(--gray-500);
+    --c-text--placeholder: var(--gray-400);
     --c-text--error: var(--red-600);
 
     --c-outline--error: var(--red-600);
@@ -132,6 +133,7 @@
 
         --c-text--base: var(--zinc-200);
         --c-text--subdued: var(--zinc-500);
+        --c-text--placeholder: var(--zinc-600);
         --c-text--error: var(--red-500);
 
         --c-outline--error: var(--red-500);
