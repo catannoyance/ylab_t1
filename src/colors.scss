@@ -26,6 +26,7 @@
     --zinc-700: #3f3f46;
     --zinc-800: #27272a;
     --zinc-900: #18181b;
+    --zinc-925: #131316;
     --zinc-950: #09090b;
     --zinc-1000: #000000;
 
@@ -100,9 +101,9 @@
     --outline-focus--on: 3px solid var(--c-outline--focus);
 
     @include mixins.dark {
-        --c-backdrop--primary: var(--zinc-950);
+        --c-backdrop--primary: var(--zinc-1000);
         --c-backdrop--secondary--stroke: var(--zinc-800);
-        --c-backdrop--secondary--fill: var(--zinc-900);
+        --c-backdrop--secondary--fill: var(--zinc-925);
 
         --c-component--primary--disabled: var(--zinc-700);
 
@@ -114,13 +115,13 @@
         --c-component-label--secondary: var(--blue-400);
         --c-component-label--secondary--disabled: var(--zinc-500);
 
-        --c-component--neutral--stroke: var(--zinc-700);
-        --c-component--neutral--stroke--hover: var(--zinc-600);
-        --c-component--neutral--stroke--active: var(--zinc-500);
+        --c-component--neutral--stroke: var(--zinc-800);
+        --c-component--neutral--stroke--hover: var(--zinc-700);
+        --c-component--neutral--stroke--active: var(--zinc-600);
         --c-component--neutral--stroke--disabled: var(--zinc-800);
         --c-component--neutral--fill: var(--zinc-950);
-        --c-component--neutral--fill--hover: var(--zinc-800);
-        --c-component--neutral--fill--active: var(--zinc-700);
+        --c-component--neutral--fill--hover: var(--zinc-900);
+        --c-component--neutral--fill--active: var(--zinc-800);
         --c-component--neutral--fill--disabled: var(--zinc-800);
 
         --c-component-label--neutral: var(--zinc-400);
