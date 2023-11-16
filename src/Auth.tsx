@@ -1,6 +1,6 @@
 import { TextInput } from "./TextInput"
 import styles from "./Auth.module.scss"
-import { FormEvent, useCallback, useEffect, useId, useRef, useState } from "react"
+import { FormEvent, useCallback, useEffect, useRef, useState } from "react"
 import { Button } from "./Button"
 import { Checkbox } from "./Checkbox"
 import { LoadingSpinner } from "./LoadingSpinner"

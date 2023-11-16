@@ -10,17 +10,11 @@
 
     border-radius: var(--border-radius-sm);
 
-    border: 1px solid var(--c-neutral-200);
-    background: var(--c-neutral-50);
+    border: 1px solid var(--c-backdrop--secondary--stroke);
+    background: var(--c-backdrop--secondary--fill);
     box-shadow:
         0 4px 6px -1px rgb(0 0 0 / 0.1),
         0 2px 4px -2px rgb(0 0 0 / 0.1);
-
-    @include mixins.dark {
-        border: 1px solid var(--c-neutral-800);
-        background: var(--c-neutral-900);
-        box-shadow: none;
-    }
 
     @include mixins.breakpoint-max(sm) {
         width: 100%;
@@ -40,7 +34,7 @@
 
 .errorContainer {
     user-select: none;
-    background: var(--c-red-100);
+    background: var(--c-component--error);
     padding: var(--spacing-xs);
     border-radius: var(--border-radius-sm);
     text-align: center;
@@ -49,15 +43,8 @@
         font-size: var(--text-sm);
         line-height: var(--leading-sm);
 
-        color: var(--c-red-600);
+        color: var(--c-component-label--error);
         font-weight: 500;
-    }
-
-    @include mixins.dark {
-        background: var(--c-red-900);
-        & > span {
-            color: var(--c-red-50);
-        }
     }
 }
 
@@ -90,8 +77,5 @@
     font-weight: 700;
     margin: 0;
     user-select: none;
-
-    @include mixins.dark {
-        color: var(--c-neutral-200);
-    }
+    color: var(--c-text--base);
 }

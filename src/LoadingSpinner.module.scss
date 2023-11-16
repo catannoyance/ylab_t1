@@ -16,7 +16,7 @@
     height: var(--spacing-xs);
 
     border-radius: 50%;
-    background: var(--c-neutral-400);
+    background: var(--c-component--neutral--stroke--hover);
 
     animation: dot 0.5s infinite alternate ease-in-out;
 }
@@ -36,16 +36,16 @@
 @keyframes dot {
     0% {
         transform: scale(1);
-        background: var(--c-neutral-400);
+        background: var(--c-component--neutral--stroke--hover);
     }
 
     20% {
         transform: scale(1);
-        background: var(--c-neutral-400);
+        background: var(--c-component--neutral--stroke--hover);
     }
 
     100% {
         transform: scale(1.5);
-        background: var(--c-neutral-300);
+        background: var(--c-component--neutral--stroke--active);
     }
 }

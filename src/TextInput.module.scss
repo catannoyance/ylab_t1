@@ -6,13 +6,10 @@
     gap: var(--spacing-xxs);
 
     & > label {
+        color: var(--c-text--base);
         font-size: var(--text-sm);
         font-weight: 600;
         user-select: none;
-
-        @include mixins.dark {
-            color: var(--c-neutral-200);
-        }
     }
 
     & > input {
@@ -20,48 +17,34 @@
         padding: var(--spacing-xs);
         border-radius: var(--border-radius-xs);
 
+        color: var(--c-text--base);
+
         border: none;
-        outline: 1px solid var(--c-neutral-300);
+        outline: 1px solid var(--c-component--neutral--stroke);
+        background: var(--c-component--neutral--fill);
 
         transition: outline 0.1s ease;
 
         &:focus {
-            outline: 3px solid var(--c-blue-500);
+            outline: var(--outline-focus--on);
         }
 
         &::placeholder {
-            color: var(--c-neutral-400);
+            color: var(--c-text--subdued);
             user-select: none;
-        }
-
-        @include mixins.dark {
-            background: var(--c-neutral-950);
-            color: var(--c-neutral-200);
-            outline: 1px solid var(--c-neutral-600);
-
-            &::placeholder {
-                color: var(--c-neutral-600);
-            }
         }
     }
 
     &.disabled > input {
         cursor: not-allowed;
 
-        background: var(--c-neutral-100);
-        color: var(--c-neutral-400);
-        @include mixins.dark {
-            background: var(--c-neutral-800);
-            color: var(--c-neutral-400);
-        }
+        outline-color: var(--c-component--neutral--stroke--disabled);
+        background: var(--c-component--neutral--fill--disabled);
+        color: var(--c-text--subdued);
     }
 
     &.error > input {
-        outline-color: var(--c-red-600);
-
-        @include mixins.dark {
-            outline-color: var(--c-red-500);
-        }
+        outline-color: var(--c-outline--error);
     }
 }
 
@@ -71,8 +54,5 @@
 
     font-weight: 500;
 
-    color: var(--c-red-600);
-    @include mixins.dark {
-        color: var(--c-red-500);
-    }
+    color: var(--c-component-label--error);
 }

@@ -20,11 +20,11 @@
         position: relative;
         margin: 0;
 
-        border: 1px solid var(--c-neutral-400);
+        border: 1px solid var(--c-component--neutral--stroke);
         border-radius: var(--border-radius-xs);
-        outline: 0px solid var(--c-blue-500);
-        outline-offset: 1px;
-        background: var(--c-neutral-0);
+        outline: var(--outline-focus--off);
+        outline-offset: var(--outline-focus--offset);
+        background: var(--c-component--primary);
 
         transition:
             background-color 0.15s ease,
@@ -40,7 +40,7 @@
             left: 0.35rem;
             width: 0.25rem;
             height: 0.5rem;
-            border: solid white;
+            border: solid var(--c-component-label--primary);
             border-width: 0 0.2rem 0.2rem 0;
             transform: rotate(45deg);
         }
@@ -54,67 +54,17 @@
             right: 0;
             left: 0;
             bottom: 0;
-            background: var(--c-neutral-0);
+            background: var(--c-component--neutral--fill);
             transform: scale(1);
             transition: transform 0.15s ease;
         }
 
-        &:checked {
-            &::after {
-                transform: scale(0);
-            }
-            border-color: var(--c-blue-600);
-            background: var(--c-blue-600);
-        }
-
-        &:hover {
-            background: var(--c-blue-700);
-            border-color: var(--c-blue-700);
-            &::after {
-                background: var(--c-neutral-100);
-            }
-        }
-
-        &:active {
-            background: var(--c-blue-800);
-            border-color: var(--c-blue-800);
-            &::after {
-                background: var(--c-neutral-200);
-            }
+        &:checked::after {
+            transform: scale(0);
         }
 
         &:focus {
-            outline-width: 3px;
-        }
-
-        @include mixins.dark {
-            background: var(--c-neutral-800);
-            border-color: var(--c-neutral-600);
-
-            &::after {
-                background: var(--c-neutral-950);
-            }
-
-            &:checked {
-                background: var(--c-blue-600);
-                border-color: var(--c-blue-600);
-            }
-
-            &:hover {
-                background: var(--c-blue-700);
-                border-color: var(--c-blue-700);
-                &::after {
-                    background: var(--c-neutral-700);
-                }
-            }
-
-            &:active {
-                background: var(--c-blue-800);
-                border-color: var(--c-blue-800);
-                &::after {
-                    background: var(--c-neutral-800);
-                }
-            }
+            outline: var(--outline-focus--on);
         }
     }
 
@@ -123,34 +73,63 @@
         line-height: var(--leading-sm);
         font-weight: 500;
         user-select: none;
-
-        @include mixins.dark {
-            color: var(--c-neutral-200);
-        }
     }
 }
 
+.checkbox:not(.disabled) > input {
+    &:checked {
+        border-color: var(--c-component--primary);
+        &:hover {
+            border-color: var(--c-component--primary--hover);
+            background: var(--c-component--primary--hover);
+        }
+
+        &:active {
+            border-color: var(--c-component--primary--active);
+            background: var(--c-component--primary--active);
+        }
+    }
+
+    &:not(:checked) {
+        &:hover {
+            border-color: var(--c-component--neutral--stroke--hover);
+            &::after {
+                background-color: var(--c-component--neutral--fill--hover);
+            }
+        }
+
+        &:active {
+            border-color: var(--c-component--neutral--stroke--active);
+            &::after {
+                background-color: var(--c-component--neutral--fill--active);
+            }
+        }
+    }
+}
 .disabled > input {
-    background: var(--c-neutral-100);
+    border-color: var(--c-component--neutral--stroke--disabled);
+    background: var(--c-component--primary--disabled);
     cursor: not-allowed;
 
     &:after {
-        background: var(--c-neutral-200);
+        background: var(--c-component--neutral--fill--disabled);
+    }
+
+    &:active {
+        background: var(--component--primary--disabled);
+        &::after {
+            background: var(--c-component--neutral--fill--disabled);
+        }
     }
 
     &:checked {
-        background: var(--c-neutral-500);
-        border-color: var(--c-neutral-500);
-    }
-
-    @include mixins.dark {
-        &:after {
-            background: var(--c-neutral-800);
-        }
-
-        &:checked {
-            background: var(--c-neutral-500);
-            border-color: var(--c-neutral-500);
+        background: var(--c-component--primary--disabled);
+        border-color: var(--c-component--primary--disabled);
+        &:hover {
+            background: var(--c-component--primary--disabled);
+            &::after {
+                background: var(--c-component--neutral--fill--disabled);
+            }
         }
     }
 }

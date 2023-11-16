@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react"
 import { Auth, AuthError, AuthState } from "./Auth"
 import "./index.scss"
+import "./colors.scss"
 
 const fakeFetch: typeof fetch = async (url, options) => {
     await new Promise(resolve => setTimeout(resolve, 2000))

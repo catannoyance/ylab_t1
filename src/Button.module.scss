@@ -11,15 +11,15 @@
     font-weight: 600;
     font-family: inherit;
 
-    outline: 0px solid var(--c-blue-600);
-    outline-offset: 2px;
+    outline: var(--outline-focus--off);
+    outline-offset: var(--outline-focus--offset);
     transition: outline 0.1s ease;
 
     white-space: nowrap;
     user-select: none;
 
     &:focus {
-        outline: 3px solid var(--c-blue-500);
+        outline: var(--outline-focus--on);
     }
 
     &:disabled {
@@ -28,93 +28,59 @@
 }
 
 .primary {
-    background: var(--c-blue-600);
-    color: var(--c-neutral-0);
+    background: var(--c-component--primary);
+    color: var(--c-component-label--primary);
 
     &:hover {
-        background: var(--c-blue-700);
+        background: var(--c-component--primary--hover);
     }
 
     &:active {
-        background: var(--c-blue-800);
+        background: var(--c-component--primary--active);
     }
 
     &.disabled {
-        background: var(--c-neutral-500);
-        color: var(--c-neutral-50);
+        background: var(--c-component--primary--disabled);
+        color: var(--c-component-label--primary--disabled);
     }
 }
 
 .secondary {
-    color: var(--c-blue-600);
-    background: var(--c-blue-100);
+    color: var(--c-component-label--secondary);
+    background: var(--c-component--secondary);
 
     &:hover {
-        background: var(--c-blue-200);
+        background: var(--c-component--secondary--hover);
     }
     &:active {
-        background: var(--c-blue-300);
+        background: var(--c-component--secondary--active);
     }
 
     &.disabled {
-        background: var(--c-neutral-200);
-        color: var(--c-neutral-500);
-    }
-
-    @include mixins.dark {
-        color: var(--c-blue-400);
-        background: var(--c-blue-950);
-
-        &:hover {
-            background: var(--c-blue-900);
-        }
-        &:active {
-            background: var(--c-blue-800);
-        }
-
-        &.disabled {
-            background: var(--c-neutral-800);
-            color: var(--c-neutral-500);
-        }
+        background: var(--c-component--secondary--disabled);
+        color: var(--c-component-label--secondary--disabled);
     }
 }
 
 .tertiary {
-    background: none;
-    background: 1px solid transparent;
-    color: var(--c-neutral-600);
+    background: transparent;
+    color: var(--c-component-label--neutral);
+
     font-size: var(--text-xs);
     font-weight: 400;
 
     text-decoration: none;
 
     &:hover {
-        background: var(--c-neutral-200);
+        background: var(--c-component--neutral--fill--hover);
     }
 
     &:active {
-        background: var(--c-neutral-300);
+        background: var(--c-component--neutral--fill--active);
     }
 
     &.disabled {
         background: none;
-        color: var(--c-neutral-400);
-    }
-
-    @include mixins.dark {
-        color: var(--c-neutral-400);
-
-        &:hover {
-            background: var(--c-neutral-800);
-        }
-
-        &:active {
-            background: var(--c-neutral-700);
-        }
-
-        &.disabled {
-            background: none;
-            color: var(--c-neutral-500);
-        }
+        color: var(--c-component-label--neutral--disabled);
     }
 }
