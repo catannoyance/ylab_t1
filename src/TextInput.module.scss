@@ -1,3 +1,5 @@
+@use "./mixins.scss";
+
 .textInput {
     display: flex;
     flex-direction: column;
@@ -7,6 +9,10 @@
         font-size: var(--text-sm);
         font-weight: 600;
         user-select: none;
+
+        @include mixins.dark {
+            color: var(--c-neutral-200);
+        }
     }
 
     & > input {
@@ -27,39 +33,9 @@
             color: var(--c-neutral-400);
             user-select: none;
         }
-    }
-}
 
-.disabled {
-    & > input {
-        cursor: not-allowed;
-        background: var(--c-neutral-100);
-        color: var(--c-neutral-400);
-    }
-}
-
-.error {
-    & > input {
-        outline-color: var(--c-red-600);
-    }
-}
-
-.errorText {
-    font-size: var(--text-xs);
-    line-height: var(--leading-xs);
-
-    color: var(--c-red-600);
-    font-weight: 500;
-}
-
-@media (prefers-color-scheme: dark) {
-    .textInput {
-        & > label {
-            color: var(--c-neutral-200);
-        }
-
-        & > input {
-            background: none;
+        @include mixins.dark {
+            background: var(--c-neutral-950);
             color: var(--c-neutral-200);
             outline: 1px solid var(--c-neutral-600);
 
@@ -67,21 +43,36 @@
                 color: var(--c-neutral-600);
             }
         }
+    }
 
-        &.disabled {
-            & > input {
-                background: var(--c-neutral-800);
-                color: var(--c-neutral-400);
-            }
+    &.disabled > input {
+        cursor: not-allowed;
+
+        background: var(--c-neutral-100);
+        color: var(--c-neutral-400);
+        @include mixins.dark {
+            background: var(--c-neutral-800);
+            color: var(--c-neutral-400);
         }
     }
-    .error {
-        & > input {
+
+    &.error > input {
+        outline-color: var(--c-red-600);
+
+        @include mixins.dark {
             outline-color: var(--c-red-500);
         }
     }
+}
 
-    .errorText {
+.errorText {
+    font-size: var(--text-xs);
+    line-height: var(--leading-xs);
+
+    font-weight: 500;
+
+    color: var(--c-red-600);
+    @include mixins.dark {
         color: var(--c-red-500);
     }
 }

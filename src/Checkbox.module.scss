@@ -1,3 +1,7 @@
+// this one is a mess, i'm sorry
+
+@use "./mixins.scss";
+
 .checkbox {
     display: flex;
     flex-direction: row;
@@ -82,40 +86,13 @@
         &:focus {
             outline-width: 3px;
         }
-    }
 
-    & > label {
-        font-size: var(--text-sm);
-        line-height: var(--leading-sm);
-        font-weight: 500;
-        user-select: none;
-    }
-}
-
-.disabled {
-    & > input {
-        background: var(--c-neutral-100);
-        cursor: not-allowed;
-
-        &:after {
-            background: var(--c-neutral-200);
-        }
-
-        &:checked {
-            background: var(--c-neutral-500);
-            border-color: var(--c-neutral-500);
-        }
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    .checkbox {
-        & > input {
+        @include mixins.dark {
             background: var(--c-neutral-800);
             border-color: var(--c-neutral-600);
 
             &::after {
-                background: var(--c-neutral-900);
+                background: var(--c-neutral-950);
             }
 
             &:checked {
@@ -139,9 +116,41 @@
                 }
             }
         }
+    }
 
-        & > label {
+    & > label {
+        font-size: var(--text-sm);
+        line-height: var(--leading-sm);
+        font-weight: 500;
+        user-select: none;
+
+        @include mixins.dark {
             color: var(--c-neutral-200);
+        }
+    }
+}
+
+.disabled > input {
+    background: var(--c-neutral-100);
+    cursor: not-allowed;
+
+    &:after {
+        background: var(--c-neutral-200);
+    }
+
+    &:checked {
+        background: var(--c-neutral-500);
+        border-color: var(--c-neutral-500);
+    }
+
+    @include mixins.dark {
+        &:after {
+            background: var(--c-neutral-800);
+        }
+
+        &:checked {
+            background: var(--c-neutral-500);
+            border-color: var(--c-neutral-500);
         }
     }
 }

@@ -1,0 +1,25 @@
+@mixin dark {
+    @media (prefers-color-scheme: dark) {
+        @content;
+    }
+}
+
+@mixin breakpoint-max($name) {
+    @if not map-has-key($map: $breakpoints, $key: $name) {
+        @error "Unknown breakpoint: #{$name}.";
+    }
+
+    @media (max-width: map-get($breakpoints, $name)) {
+        @content;
+    }
+}
+
+
+$breakpoints: (
+    xs: 350px,
+    sm: 640px,
+    md: 768px,
+    lg: 1024px,
+    xl: 1280px,
+    xxl: 1536px,
+);

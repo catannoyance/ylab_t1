@@ -1,6 +1,6 @@
-.auth {
-    border: 1px solid var(--c-neutral-200);
+@use "./mixins.scss";
 
+.auth {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-lg);
@@ -10,11 +10,26 @@
 
     border-radius: var(--border-radius-sm);
 
+    border: 1px solid var(--c-neutral-200);
     background: var(--c-neutral-50);
-
     box-shadow:
         0 4px 6px -1px rgb(0 0 0 / 0.1),
         0 2px 4px -2px rgb(0 0 0 / 0.1);
+
+    @include mixins.dark {
+        border: 1px solid var(--c-neutral-800);
+        background: var(--c-neutral-900);
+        box-shadow: none;
+    }
+
+    @include mixins.breakpoint-max(sm) {
+        width: 100%;
+        max-width: 24em;
+        box-sizing: border-box;
+        border: none;
+        box-shadow: none;
+        padding: var(--spacing-sm);
+    }
 }
 
 .fieldContainer {
@@ -37,6 +52,13 @@
         color: var(--c-red-600);
         font-weight: 500;
     }
+
+    @include mixins.dark {
+        background: var(--c-red-900);
+        & > span {
+            color: var(--c-red-50);
+        }
+    }
 }
 
 .buttonContainer {
@@ -53,6 +75,12 @@
     & > *:first-child {
         grid-area: primary;
     }
+
+    @include mixins.breakpoint-max(xs) {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template: "primary" "secondary" "tertiary";
+    }
 }
 
 .header {
@@ -62,48 +90,8 @@
     font-weight: 700;
     margin: 0;
     user-select: none;
-}
 
-@media screen and (max-width: 600px) {
-    .auth {
-        width: 100%;
-        box-sizing: border-box;
-        max-width: 24em;
-        border: none;
-        box-shadow: none;
-        padding: var(--spacing-sm);
-    }
-}
-
-@media screen and (max-width: 350px) {
-    .buttonContainer {
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
-        grid-template: "primary" "secondary" "tertiary";
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    .auth {
-        border: 1px solid var(--c-neutral-800);
-        background: var(--c-neutral-900);
-        box-shadow: none;
-    }
-
-    .errorContainer {
-        background: var(--c-red-900);
-        & > span {
-            color: var(--c-red-50);
-        }
-    }
-
-    .header {
+    @include mixins.dark {
         color: var(--c-neutral-200);
-    }
-
-    @media screen and (max-width: 600px) {
-        .auth {
-            border: none;
-        }
     }
 }

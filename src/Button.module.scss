@@ -1,3 +1,5 @@
+@use "./mixins.scss";
+
 .button {
     padding: var(--spacing-xs) var(--spacing-sm);
     cursor: pointer;
@@ -58,6 +60,23 @@
         background: var(--c-neutral-200);
         color: var(--c-neutral-500);
     }
+
+    @include mixins.dark {
+        color: var(--c-blue-400);
+        background: var(--c-blue-950);
+
+        &:hover {
+            background: var(--c-blue-900);
+        }
+        &:active {
+            background: var(--c-blue-800);
+        }
+
+        &.disabled {
+            background: var(--c-neutral-800);
+            color: var(--c-neutral-500);
+        }
+    }
 }
 
 .tertiary {
@@ -81,27 +100,8 @@
         background: none;
         color: var(--c-neutral-400);
     }
-}
 
-@media (prefers-color-scheme: dark) {
-    .secondary {
-        color: var(--c-blue-400);
-        background: var(--c-blue-950);
-
-        &:hover {
-            background: var(--c-blue-900);
-        }
-        &:active {
-            background: var(--c-blue-800);
-        }
-
-        &.disabled {
-            background: var(--c-neutral-800);
-            color: var(--c-neutral-500);
-        }
-    }
-
-    .tertiary {
+    @include mixins.dark {
         color: var(--c-neutral-400);
 
         &:hover {
