@@ -72,23 +72,6 @@ export const Auth = (props: AuthProps) => {
         [validatePassword, password, validateEmail, email, props, rememberMe],
     )
 
-    useEffect(() => {
-        const handleKeyDown = (event: KeyboardEvent) => {
-            // this should not trigger when trying to press "sign up" or "forgot password"
-            const isAnyInputActive = document.activeElement?.tagName === "INPUT"
-
-            if (event.key === "Enter" && isAnyInputActive) {
-                formRef.current?.requestSubmit()
-            }
-        }
-
-        const form = formRef.current
-        form?.addEventListener("keydown", handleKeyDown)
-        return () => {
-            form?.removeEventListener("keydown", handleKeyDown)
-        }
-    }, [handleSubmit, formRef])
-
     return (
         <form className={styles.auth} ref={formRef} onSubmit={handleSubmit}>
             <h1 className={styles.header}>Вход</h1>
