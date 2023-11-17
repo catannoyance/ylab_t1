@@ -12,6 +12,7 @@ type TextInputProps = {
     hidden?: boolean
     disabled?: boolean
     required?: boolean
+    autocomplete?: HTMLInputElement["autocomplete"]
 }
 
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
@@ -40,6 +41,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
                     role="textbox"
                     disabled={props.disabled}
                     required={props.required}
+                    autoComplete={props.autocomplete}
                 />
 
                 {props.errored && props.errorText && (

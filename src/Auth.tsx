@@ -96,6 +96,7 @@ export const Auth = (props: AuthProps) => {
                     errored={emailErrored}
                     errorText="Неверный формат email"
                     disabled={props.state === "loading"}
+                    autocomplete="email"
                     required
                 />
                 <TextInput
@@ -108,6 +109,7 @@ export const Auth = (props: AuthProps) => {
                     errored={passwordErrored}
                     errorText="Пароль должен содержать не менее 8 символов"
                     disabled={props.state === "loading"}
+                    autocomplete="current-password"
                     required
                 />
 
